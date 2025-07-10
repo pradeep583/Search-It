@@ -1,0 +1,27 @@
+# NLP and Machine Learning Libraries
+nltk
+spacy
+beautifulsoup4
+rank-bm25
+sentence-transformers
+scikit-learn
+numpy
+torch
+
+# Web Frameworks
+flask
+
+# Crawling & Scraping
+requests
+urllib3
+tldextract
+
+#Utility Libraries
+tqdm
+joblib
+
+# Html Parsing
+lxml
+html5lib
+
+

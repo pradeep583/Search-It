@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search It</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">Search<span class="highlight">It</span></h1>
+
+        <form method="POST" class="search-bar">
+            <input type="text" name="query" value="{{ query or '' }}" placeholder="Search the web..." required>
+            <button type="submit">Search</Search></button>
+        </form>
+
+        {% for r in results %}
+        <div class="result">
+            <a class="title" href="{{ r.url }}" target="_blank">{{ r.title }}</a>
+            <div class="url">{{ r.url }}</div>
+            <div class="snippet">{{ r.snippet }}...</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
