@@ -1,4 +1,4 @@
-# --- inside indexer.py ---
+# indexer.py ---
 import re, torch, string
 import numpy as np
 from bs4 import BeautifulSoup
@@ -33,20 +33,20 @@ def clean_html(html_content):
     return soup.get_text(separator=' ', strip=True)
 
 
+def clean_text(text):
+    text = text.lower()
+    text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r'http\S+|www\S+', '', text)
+    text = re.sub(r'[^a-z0-9\s]', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
 
 # --- Tokenizers ---
 def preprocess_text(text):
     if not text:
         return []
-    
-    # Basic cleaning
-    text = text.lower()
-    text = re.sub(r'<[^>]+>', '', text)                   # Remove HTML
-    text = re.sub(r'http\S+|www\S+', '', text)            # Remove URLs
-    text = re.sub(r'[^a-z\s]', '', text)                  # Remove non-letters
-    text = re.sub(r'\s+', ' ', text).strip()              # Normalize spaces
-    
-    # Tokenize + filter
+    text = re.sub(r'[^a-z\s]', '', text.lower())
+
     tokens = text.split()
     return [t for t in tokens if t not in ENGLISH_STOP_WORDS and len(t) > 2]
 
