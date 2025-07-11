@@ -1,4 +1,4 @@
-# === DFS-Based Multi-threaded Web Crawler with Resume Checkpoints (Fixed) ===
+# Multi-threaded Web Crawler
 import os
 import time
 import json
