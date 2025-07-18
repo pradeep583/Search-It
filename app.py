@@ -41,6 +41,6 @@ def home():
             except Exception as e:
                 print(f"[ERROR] Search failed: {e}")
     return render_template("index.html", results=results ,query=q)
-
+# run the app
 if __name__ == "__main__":
     app.run(debug=True)
