@@ -9,6 +9,9 @@ import spacy
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 # Load SpaCy & Model
+import spacy.cli
+spacy.cli.download("en_core_web_sm")  
+
 nlp = spacy.load("en_core_web_sm")
 model = None
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
