@@ -6,7 +6,7 @@ rank-bm25
 sentence-transformers
 scikit-learn
 numpy
-torch
+
 
 # Web Frameworks
 flask
