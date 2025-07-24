@@ -24,7 +24,7 @@ joblib
 lxml
 html5lib
 
-
+#For deployment
 gunicorn
 
 
