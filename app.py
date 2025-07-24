@@ -1,7 +1,6 @@
 # app.py
 from flask import Flask, request, render_template
 import pickle
-import os
 from searcher import search
 
 
@@ -45,6 +44,5 @@ def home():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render provides PORT 
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
 
