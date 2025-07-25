@@ -1,5 +1,8 @@
-# indexer.py ---
-import re, torch, string
+# indexer.py
+import nltk
+nltk.download('wordnet') # For first time 
+
+import re
 import numpy as np
 from bs4 import BeautifulSoup
 from tqdm import tqdm
@@ -7,11 +10,9 @@ from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 import spacy
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
+import torch
 
 # Load SpaCy & Model
-import spacy.cli
-spacy.cli.download("en_core_web_sm")  
-
 nlp = spacy.load("en_core_web_sm")
 model = None
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -28,13 +29,12 @@ def get_model():
         model.eval()
     return model
 
-# --- Cleaners ---
+# Cleaners 
 def clean_html(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     for tag in soup(['script', 'style', 'header', 'footer', 'nav', 'aside', 'noscript']):
         tag.decompose()
     return soup.get_text(separator=' ', strip=True)
-
 
 def clean_text(text):
     text = text.lower()
@@ -44,7 +44,7 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-# --- Tokenizers ---
+# Tokenizers
 def preprocess_text(text):
     if not text:
         return []
@@ -61,7 +61,7 @@ def spacy_preprocess(text):
         if token.is_alpha and not token.is_stop 
     ]
 
-# --- BM25 ---
+# BM25
 def build_bm25_index(docs):
     preprocessed = {}
     for url, content in docs.items():
@@ -71,7 +71,7 @@ def build_bm25_index(docs):
     bm25 = BM25Okapi(list(preprocessed.values()))
     return bm25, list(preprocessed.keys())
 
-# --- Sentence-BERT Embeddings ---
+# Sentence-BERT
 def batched_encode(texts, batch_size=64):
     model = get_model()
     embeddings = []
