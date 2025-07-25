@@ -39,7 +39,7 @@ python -m spacy download en_core_web_sm
 ```bash
 python crawler.py
 ```
-* This will crawl static webpages and store them in url_content.txt and make nodes in url_graph.json which would be like
+* This will crawl static webpages and store them in url_content.txt and make nodes in url_graph.json
   
 * url_content.txt in this format:
 
