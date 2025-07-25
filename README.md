@@ -59,15 +59,17 @@ python crawler.py
 
 ### 2. Run precomputation
 
-bash
+```bash
 python precompute.py
+```
 
 *  This will help to precompute all the crawled data in the pickle files which can be later used for retrieving soon.
 
 ### 3. Run app
 
-bash
+```bash
 python app.py
+```
 
 * This will run the app and bring the data from precomputed pickle files.
 
