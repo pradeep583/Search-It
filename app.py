@@ -12,7 +12,6 @@ def load_pickle(path):
         return pickle.load(f)
 
 print("[INFO] Loading precomputed files...")
-index, doc_lens, N = load_pickle('tfidf_index.pkl')
 bm25, bm25_urls = load_pickle('bm25_index.pkl')
 pagerank = load_pickle('pagerank.pkl')
 embeddings = load_pickle('embeddings.pkl')
@@ -33,10 +32,6 @@ def home():
                         'title': titles.get(url, 'No Title'),
                         'url': url,
                         'snippet': snippets.get(url, 'No snippet available')
-                        # 'score': f"{total:.4f}",
-                        # 'bm25': f"{bm25_s:.4f}",
-                        # 'sim': f"{sim_s:.4f}",
-                        # 'pr': f"{pr_s:.4f}"
                     })
             except Exception as e:
                 print(f"[ERROR] Search failed: {e}")
