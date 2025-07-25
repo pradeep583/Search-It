@@ -1,14 +1,10 @@
 # precompute.py
 import json
 import pickle
-from indexer import build_bm25_index
+from indexer import build_bm25_index,get_model
 from pageranker import build_pagerank
-from sentence_transformers import SentenceTransformer
-from tqdm import tqdm
 from indexer import get_model
 model = get_model()
-
-
 
 def load_data(file='url_content.txt'):
     docs, titles, snippets = {}, {}, {}
@@ -37,7 +33,6 @@ def load_data(file='url_content.txt'):
                     content = block['content']
                     if block.get('url') in docs or not block.get('content') or len(block['content'].split()) < 40:
                         continue
-
 
                     u = block['url']
                     docs[u] = content
@@ -90,15 +85,9 @@ if __name__ == '__main__':
     save_pickle((docs, titles, snippets), 'content.pkl')
 
 
-print("[✅] Precomputation complete!")
-print(f"Documents indexed (BM25): {len(bm25_urls)}")
-print(f"Documents embedded: {len(url_to_embedding)}")
-print(f"PageRank nodes: {len(pagerank)}")
-
-
-print(f"[STATS] Total documents: {len(docs)}")
-lengths = [len(c.split()) for c in docs.values()]
-print(f"[STATS] Avg doc length: {sum(lengths) // len(lengths)} words")
-print(f"[STATS] Max doc length: {max(lengths)} words")
+    print("Precomputation complete!") 
+    print(f"Documents indexed (BM25): {len(bm25_urls)}")
+    print(f"Documents embedded: {len(url_to_embedding)}")
+    print(f"PageRank nodes: {len(pagerank)}")
 
 
