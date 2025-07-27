@@ -85,7 +85,7 @@ python app.py
  * Feel free to fork, test, and enhance this project.
 
 ## Contact
- - 📧 Email: [pradeepravikumar1@gmail.com](mailto:pradeepravikumar1@gmail.com)
- - 💬 DM me directly on [LinkedIn](https://www.linkedin.com/in/pradeep-ravikumar)
+ - Email: [pradeepravikumar1@gmail.com](mailto:pradeepravikumar1@gmail.com)
+ - DM me directly on [LinkedIn](https://www.linkedin.com/in/pradeep-ravikumar)
 
 
