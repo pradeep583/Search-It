@@ -1,4 +1,4 @@
-# Search Engine
+# Search It
 
 A lightweight yet powerful web search engine combining:
 
