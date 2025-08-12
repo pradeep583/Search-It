@@ -6,6 +6,11 @@ A lightweight yet powerful web search engine combining:
 - **BERT embeddings** for semantic understanding  
 - **PageRank** for link-based importance
 
+## Live Demo
+
+- https://github.com/user-attachments/assets/61e6aa40-2a39-4043-8332-bc6d6db7063f
+
+
 ## Goals
 
 - Go beyond keyword matching by understanding intent
